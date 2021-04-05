@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 import CardComponent from "./CardComponent";
 import imgs from "../images/food.png";
@@ -41,24 +42,26 @@ export const Home = (props) => {
                 >
                     {lt.map((data, key) => {
                         return (
-                            <CardComponent
-                                key={key}
-                                brand={data.Brand}
-                                variety={data.Variety}
-                                foodStyle={data.Style}
-                                country={data.Country}
-                                stars={
-                                    data.Stars === "NaN"
-                                        ? "Not Rated"
-                                        : data.Stars
-                                }
-                                topTen={
-                                    data["Top Ten"] === "NaN"
-                                        ? "Not Ranked"
-                                        : data["Top Ten"]
-                                }
-                                image={imgs}
-                            />
+                            <Link key={key} to={data.Variety}>
+                                <CardComponent
+                                    key={key}
+                                    brand={data.Brand}
+                                    variety={data.Variety}
+                                    // foodStyle={data.Style}
+                                    // country={data.Country}
+                                    // stars={
+                                    //     data.Stars === "NaN"
+                                    //         ? "Not Rated"
+                                    //         : data.Stars
+                                    // }
+                                    // topTen={
+                                    //     data["Top Ten"] === "NaN"
+                                    //         ? "Not Ranked"
+                                    //         : data["Top Ten"]
+                                    // }
+                                    image={imgs}
+                                />
+                            </Link>
                         );
                     })}
                 </Grid>

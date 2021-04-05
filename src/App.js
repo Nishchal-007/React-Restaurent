@@ -1,14 +1,24 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import axios from "axios";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { Home } from "./Components/Home";
+import DishDetails from "./Components/DishDetails";
 
 function App() {
     return (
-        <div className="App">
-            <Home />
-        </div>
+        <Router>
+            <div className="App">
+                <Switch>
+                    <Route exact path="/">
+                        <Home />
+                    </Route>
+                    <Route path="/:variety">
+                        <DishDetails />
+                    </Route>
+                </Switch>
+            </div>
+        </Router>
     );
 }
 

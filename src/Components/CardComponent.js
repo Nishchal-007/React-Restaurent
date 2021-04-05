@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
@@ -24,30 +23,30 @@ const useStyles = makeStyles((theme) => ({
 
 const CardComponent = (props) => {
     const classes = useStyles();
-    const { brand, variety, foodStyle, country, stars, topTen } = props;
+    const { brand, variety } = props;
     return (
-        <Link>
-            <div
-                className="cardStyles"
-                style={{ padding: "20px", marginBottom: "25px" }}
-            >
-                <Grid container item xs={12} spacing={3}>
-                    <Card className={classes.root}>
-                        <CardHeader
-                            title={variety}
-                            subheader={brand}
-                            titleTypographyProps={{ variant: "h5" }}
-                        />
-                        <CardMedia
-                            className={classes.media}
-                            image={props.image}
-                            title="pic"
-                        />
-                    </Card>
-                </Grid>
-            </div>
-        </Link>
+        <div
+            className="cardStyles"
+            style={{ padding: "20px", marginBottom: "25px" }}
+        >
+            <Grid container item xs={12} spacing={3}>
+                <Card className={classes.root}>
+                    <CardHeader
+                        title={variety}
+                        subheader={"~ By " + brand}
+                        titleTypographyProps={{ variant: "h5" }}
+                    />
+                    <CardMedia
+                        className={classes.media}
+                        image={props.image}
+                        title="pic"
+                    />
+                </Card>
+            </Grid>
+        </div>
     );
 };
 
 export default CardComponent;
+
+// foodStyle, country, stars, topTen
