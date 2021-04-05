@@ -11,14 +11,12 @@ export const Home = (props) => {
 
     useEffect(() => {
         async function fetchData() {
-            let req = await axios.get(
-                "https://s3-ap-southeast-1.amazonaws.com/he-public-data/TopRamen8d30951.json"
-            );
+            let req = await axios.get("/mockData.json");
             setlt(req.data);
         }
         fetchData();
     }, []);
-
+    console.log(lt);
     return (
         <div className="container">
             <div className="Home">
@@ -28,7 +26,7 @@ export const Home = (props) => {
                     }}
                 >
                     <center>
-                        <h1>Restaurent Details</h1>
+                        <h1>Le Bistro</h1>
                     </center>
                 </div>
             </div>

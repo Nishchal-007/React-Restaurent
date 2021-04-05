@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: "https://s3-ap-southeast-1.amazonaws.com/he-public-data/",
+    baseURL: "https://mockapidata.s3.us-east-2.amazonaws.com/mockData.json",
     headers: { "Access-Control-Allow-Origin": "http://localhost:3000" },
 });
 
